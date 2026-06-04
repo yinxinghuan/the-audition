@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import './BiddingEngine.less';
 
 import { NODES, ROOT_ID } from './content';
+import { t } from './i18n';
 import VideoStage from './primitives/VideoStage';
 import ChoiceOverlay from './primitives/ChoiceOverlay';
 import HotspotPin from './primitives/HotspotPin';
@@ -106,6 +107,7 @@ export default function BiddingEngine() {
             fallbackImg={stillUrl(node.endFrame)}
             onEnded={onVideoEnded}
             holdMs={250}
+            subtitle={node.subtitleKey ? t(node.subtitleKey) : undefined}
           />
         )}
 

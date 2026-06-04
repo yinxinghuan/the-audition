@@ -35,6 +35,11 @@ const STRINGS: Record<Locale, Record<string, string>> = {
     'choice.ask_one_more':      'ask for one more',
 
     // ── Endings ────────────────────────────────────────────────────────────
+    // ── Subtitles (UI overlay, NOT baked into video) ───────────────────────
+    'subtitle.A':   'I want you to shoot me like her.',
+    'subtitle.AA':  "I've looked at these every night for six months.",
+    'subtitle.AAA': "We were roommates at FIT. She would come back from your shoots and not sleep for two days.",
+
     'ending.AAA.title':   'she knew her',
     'ending.AAA.tagline': "She told you they were roommates at FIT. Lin Wei would come back from your shoots and not sleep for two days.",
 
@@ -87,6 +92,10 @@ const STRINGS: Record<Locale, Record<string, string>> = {
     'choice.wait_one_beat':     '再等一拍',
     'choice.trust_her':         '信任她要去的地方',
     'choice.ask_one_more':      '让她再来一个',
+
+    'subtitle.A':   '我想让你像拍她那样拍我。',
+    'subtitle.AA':  '这六个月我每晚都翻看这些照片。',
+    'subtitle.AAA': '我们以前是 FIT 室友。她每次从你这儿拍完回去, 两天睡不着。',
 
     'ending.AAA.title':   '她认识她',
     'ending.AAA.tagline': '她说她们是 FIT 的室友。Lin Wei 每次从你这儿拍完回去, 两天睡不着。',

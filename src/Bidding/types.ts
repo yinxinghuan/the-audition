@@ -21,6 +21,9 @@ export interface NodeDef {
   endingType?: EndingType;
   endingTitleKey?: string;
   endingTaglineKey?: string;
+  // Optional i18n key for a UI subtitle shown over the video for spoken
+  // dialogue. NOT baked into the video — engine passes to VideoStage.
+  subtitleKey?: string;
 }
 
 export type Phase = 'intro' | 'playing' | 'choosing' | 'ending-card';

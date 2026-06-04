@@ -31,17 +31,18 @@ function posterFor(id: string): string {
   return p ? `${p}_end.png` : 'root_start.png';
 }
 
-function branch(id: string, a: ChoiceDef, b: ChoiceDef): NodeDef {
+function branch(id: string, a: ChoiceDef, b: ChoiceDef, hasSubtitle = false): NodeDef {
   return {
     id,
     video: `${id}.mp4`,
     posterFrame: posterFor(id),
     endFrame: `${id}_end.png`,
     choices: [a, b],
+    ...(hasSubtitle && { subtitleKey: `subtitle.${id}` }),
   };
 }
 
-function ending(id: string, type: EndingType): NodeDef {
+function ending(id: string, type: EndingType, hasSubtitle = false): NodeDef {
   return {
     id,
     video: `${id}.mp4`,
@@ -51,6 +52,7 @@ function ending(id: string, type: EndingType): NodeDef {
     endingType: type,
     endingTitleKey: `ending.${id}.title`,
     endingTaglineKey: `ending.${id}.tagline`,
+    ...(hasSubtitle && { subtitleKey: `subtitle.${id}` }),
   };
 }
 
@@ -68,6 +70,7 @@ export const NODES: Record<string, NodeDef> = {
   A: branch('A',
     ch('choice.let_her_talk',   'AA', 48, 60),
     ch('choice.show_her_door',  'AB', 25, 50),
+    true,  // Elena: "I want you to shoot me like her"
   ),
 
   // B: she walked to the cyclorama. BA = copy Lin Wei; BB = find her own.
@@ -80,6 +83,7 @@ export const NODES: Record<string, NodeDef> = {
   AA: branch('AA',
     ch('choice.listen_deeper',  'AAA', 50, 40),
     ch('choice.look_shoulder',  'AAB', 38, 50),
+    true,  // Elena: "I've looked at these every night for six months"
   ),
 
   // AB: at the door. ABA = let her go; ABB = look back at the wall.
@@ -101,7 +105,7 @@ export const NODES: Record<string, NodeDef> = {
   ),
 
   // Layer 3 endings (4 sensual + 4 horror, all realistic register)
-  AAA: ending('AAA', 'sensual'),
+  AAA: ending('AAA', 'sensual', true),  // Elena: "we were roommates at FIT…"
   AAB: ending('AAB', 'horror'),
   ABA: ending('ABA', 'sensual'),
   ABB: ending('ABB', 'horror'),
